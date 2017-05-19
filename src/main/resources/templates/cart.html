@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="main :: p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:replace="main :: p_header">
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <div class="col-lg-9 col-md-9 col-xs-9">
+                    <table class="table table-fixed table-striped table-hover">
+                        <thead class="theader">
+                            <tr>
+                                <td>
+                                    <h4>
+                                        Your cart
+                                    </h4>
+                                </td>
+                            </tr>
+                        </thead>   
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-3 col-md-3 col-xs-3"></td>
+                                <td class="col-lg-3 col-md-3 col-xs-3">Item</td>
+                                <td class="col-lg-3 col-md-3 col-xs-3">Quantity</td>
+                                <td class="col-lg-3 col-md-3 col-xs-3">Price</td>
+                                <td class="col-lg-3 col-md-3 col-xs-3">Total</td>
+                                <td class="col-lg-3 col-md-3 col-xs-3"></td>
+                            </tr>
+                            <div th:each="item:${items}">
+                                <tr>
+                                    <td class="col-lg-3"><img th:src="${item.sImage}"/></td>  
+                                    <td class="col-lg-3"><p th:text="${item.name}"/></td>
+                                    <td class="col-lg-3"><p th:text="${item.count}"/></td>
+                                    <td class="col-lg-3"><p th:text="${item.totalprice}"/></td>
+                                    <td class="col-lg-3"><a href="cart.html" th:href="@{/cart/remove(id=${item.id})}">Remove</a></td>
+                                </tr>
+                            </div>
+                            <tr>
+                                <td class="col-lg-3"><p></p></td>
+                                <td class="col-lg-3"><p>Total:</p></td>
+                                <td class="col-lg-3"><p th:text="${totalcount}"/></td>
+                                <td class="col-lg-3"><p th:text="${cartamount}"/></td>
+                                <td class="col-lg-3"><a href="cart.html" th:href="@{/cart/remove/all(id=${totalcount})}">Clear cart</a></td>
+                            </tr>
+                        </tbody>
+                    </table>  
+
+
+                </div>
+
+
+            </div>
+        </div><!-- /.container -->
+        <footer th:replace="main :: p_footer">
+        </footer>
+    </body>
+</html>
