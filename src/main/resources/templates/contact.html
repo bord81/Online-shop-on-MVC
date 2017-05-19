@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="main :: p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:replace="main :: p_header">
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <form class="well form-horizontal" id="contact_form" th:action="@{/contact/send}" th:Object="${contactM}">
+                    <fieldset>
+                        <legend>Contact Us</legend>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">First Name</label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input placeholder="First Name" id="fname" class="form-control" th:field="*{firstname}"></input>
+                                    <p th:if="${#fields.hasErrors('firstname')}">Please enter your mail pass</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">Last Name</label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input placeholder="Last Name" id="fname" class="form-control" th:field="*{fullname}"></input>
+                                    <p th:if="${#fields.hasErrors('fullname')}">Please enter your last name</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">E-Mail</label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input placeholder="Sender E-Mail" id="fname" class="form-control" th:field="*{senderemail}"></input>
+                                    <p th:if="${#fields.hasErrors('senderemail')}">Please enter sender's email</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">To: E-Mail</label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input placeholder="E-Mail Address" id="fname" class="form-control" th:field="*{recemail}"></input>
+                                    <p th:if="${#fields.hasErrors('recemail')}">Please enter your email</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">Your comments</label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input placeholder="Tell us what you think" id="fname" class="form-control" th:field="*{message}"></input>
+                                    <p th:if="${#fields.hasErrors('message')}">Please enter some text</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">SMTP host: </label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input id="fname" class="form-control" th:field="*{host}"></input>
+                                    <p th:if="${#fields.hasErrors('host')}">Please enter SMTP server</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">Port: </label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input id="fname" class="form-control" th:field="*{port}"></input>
+                                    <p th:if="${#fields.hasErrors('port')}">Please enter SMTP port</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">Mail login: </label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input id="fname" class="form-control" th:field="*{mlogin}"></input>
+                                    <p th:if="${#fields.hasErrors('mlogin')}">Please enter your mail login</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" style="float: left">Mail pass: </label> 
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group"/>
+                                    <input id="fname" type="password" class="form-control" th:field="*{mpass}"></input>
+                                    <p th:if="${#fields.hasErrors('mpass')}">Please enter your mail pass</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"/>
+                            <div class="col-md-4">
+                                <button class="btn btn-warning" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </fieldset>  
+                </form>
+            </div>
+        </div>
+        <footer th:replace="main :: p_footer">
+        </footer>
+    </body>
+</html>

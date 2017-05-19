@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="main :: p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:replace="main :: p_header">
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <div class="media">
+                    <div class="media-left">
+                        <img th:src="${one_item.image}"/>
+                    </div>  
+                    <div class="media-body">
+                        <h4 th:text="${one_item.fullName}"></h4>
+                        <p th:text="${one_item.descript}"></p>
+                    </div>
+                    <div class="media-middle media-right">
+                        <p th:text="Price"></p>
+                        <br></br>
+                        <p th:text="${one_item.price}"></p>
+                        <form action="#" th:action="@{/item/add}" th:object="${itemM}"> 
+                            <button class="btn btn-primary" type="submit" name="id" th:value="${one_item.id}" >Add to Cart</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <footer th:replace="main :: p_footer">
+        </footer>
+    </body>
+</html>

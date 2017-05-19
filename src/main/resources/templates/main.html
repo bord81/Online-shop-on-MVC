@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" th:fragment="p_header">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="main.html" th:href="@{/main}">Processors shop</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="main.html" th:href="@{/main}">Home</a></li>
+                        <li><a href="shop.html" th:href="@{/shop}">Shop</a></li>
+                        <li><a href="cart.html" th:href="@{/cart}">Cart</a></li>
+                        <li><a href="contact.html" th:href="@{/contact}">Contact</a></li>
+                    </ul>
+                </div>
+            </div><!--/.nav-collapse -->
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <h1>Very very welcome</h1>
+                <p class="lead">To our new shop</p>
+            </div>
+        </div><!-- /.container -->
+        <footer class="wrapper" th:fragment="p_footer">
+            <h4><a href="main.html" class="footer_link">Processors shop</a></h4>
+        </footer>
+    </body>
+</html>

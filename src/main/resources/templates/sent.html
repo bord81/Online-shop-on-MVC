@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="main :: p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:replace="main :: p_header">
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <h2>Congratulations, your email was sent.</h2>          
+            </div>
+        </div><!-- /.container -->
+        <footer th:replace="main :: p_footer">
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="main :: p_head">
+        <title>Spring Boot Thymeleaf Hello World Example</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"
+              href="/css/bootstrap.min.css" />
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link th:href="@{css/sie10-viewport-bug-workaround.css}" href="/css/sie10-viewport-bug-workaround.css" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/starter-template.css}" href="/css/starter-template.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:replace="main :: p_header">
+        </div>
+        <div class="container">
+            <div class="starter-template">
+                <div th:each="item:${items}">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <div class="thumbnail">
+                            <a href="item.html" th:href="@{/item(id=${item.id})}"><img th:src="${item.sImage}"/></a>
+                            <div class="caption">
+                                <a href="item.html" th:href="@{/item(id=${item.id})}">
+                                    <h4 th:text="${item.name}"></h4>
+                                    <br></br>
+                                    <p th:text="Price"></p>
+                                    <p th:text="${item.price}"></p>
+                                </a>
+                                <form action="#" th:action="@{/shop/add}" th:object="${itemM}"> 
+                                    <button class="btn btn-primary" type="submit" name="id" th:value="${item.id}" >Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container -->
+        <footer th:replace="main :: p_footer">
+        </footer>
+    </body>
+</html>
